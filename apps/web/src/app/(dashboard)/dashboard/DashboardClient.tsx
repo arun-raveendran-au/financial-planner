@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { usePlannerStore, selectActiveProfile, selectAllProfilesMerged } from '@/store/plannerStore';
+import { usePlannerStore } from '@/store/plannerStore';
 import { calculatePortfolioTimeline } from '@financial-planner/core';
 import { YearlyDataTable } from '@/components/ui/YearlyDataTable';
 import { DiversificationChart } from '@/components/charts/DiversificationChart';
@@ -11,9 +11,27 @@ import { ArrowUpRight, AlertTriangle } from 'lucide-react';
 export function DashboardClient() {
   const globalSettings = usePlannerStore((s) => s.globalSettings);
   const activeProfileId = usePlannerStore((s) => s.activeProfileId);
-  const activeProfile = usePlannerStore((s) =>
-    s.activeProfileId === 'all' ? selectAllProfilesMerged(s) : selectActiveProfile(s)
-  );
+  const profiles = usePlannerStore((s) => s.profiles);
+
+  // Derive activeProfile via useMemo to avoid infinite re-renders when 'all' is
+  // selected — calling selectAllProfilesMerged inside a Zustand selector creates
+  // a new object reference on every render, causing a subscription loop.
+  const activeProfile = useMemo(() => {
+    if (activeProfileId === 'all') {
+      return {
+        id: 0,
+        name: 'All Profiles',
+        investments: profiles.flatMap((p) => p.investments),
+        sips: profiles.flatMap((p) => p.sips),
+        lumpsums: profiles.flatMap((p) => p.lumpsums),
+        swps: profiles.flatMap((p) => p.swps),
+        oneTimeWithdrawals: profiles.flatMap((p) => p.oneTimeWithdrawals),
+        goals: profiles.flatMap((p) => p.goals),
+        rebalancingEvents: profiles.flatMap((p) => p.rebalancingEvents),
+      };
+    }
+    return profiles.find((p) => p.id === activeProfileId) ?? null;
+  }, [activeProfileId, profiles]);
 
   const [yearOffset, setYearOffset] = useState(globalSettings.timelineYears);
 
