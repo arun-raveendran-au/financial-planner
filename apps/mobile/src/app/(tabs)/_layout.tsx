@@ -1,11 +1,14 @@
 /**
  * Tab navigator layout.
- * Scaffold — screens are populated in subsequent steps.
- * The sign-out option lives in the Settings tab header.
+ * Mounts the data sync hook so portfolio data is loaded from Supabase when the
+ * user first enters the app and saved back automatically on every change.
  */
 import { Tabs } from 'expo-router';
+import { useDataSync } from '../../hooks/useDataSync';
 
 export default function TabsLayout() {
+  useDataSync();
+
   return (
     <Tabs
       screenOptions={{

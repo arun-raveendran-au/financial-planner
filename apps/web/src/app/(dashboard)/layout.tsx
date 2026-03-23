@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { SideNav } from '@/components/layout/SideNav';
 import { TopBar } from '@/components/layout/TopBar';
 import { BottomNav } from '@/components/layout/BottomNav';
+import { DataSync } from '@/components/DataSync';
 
 export default async function DashboardLayout({
   children,
@@ -18,6 +19,7 @@ export default async function DashboardLayout({
 
   return (
     <div className="min-h-screen flex bg-gray-50">
+      <DataSync />
       <SideNav />
       <div className="flex-1 flex flex-col min-w-0">
         <TopBar user={user} />
