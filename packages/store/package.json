@@ -8,8 +8,11 @@
     ".": "./src/index.ts"
   },
   "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist coverage"
   },
   "dependencies": {
     "@financial-planner/types": "workspace:*",
@@ -17,6 +20,8 @@
     "zustand": "^5.0.12"
   },
   "devDependencies": {
-    "typescript": "^5.8.2"
+    "@vitest/coverage-v8": "^3.0.9",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
   }
 }
