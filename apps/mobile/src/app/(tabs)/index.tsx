@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { usePlannerStore } from '@financial-planner/store';
 import { calculatePortfolioTimeline } from '@financial-planner/core';
+import { ProfilePicker } from '../../components/ui/ProfilePicker';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -91,6 +92,9 @@ export default function DashboardScreen() {
           </Text>
           <Text style={styles.headerSub}>Financial Dashboard</Text>
         </View>
+
+        {/* Profile switcher */}
+        <ProfilePicker />
 
         {/* Portfolio value card */}
         <View style={styles.card}>

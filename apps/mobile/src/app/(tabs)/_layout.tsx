@@ -19,7 +19,8 @@ export default function TabsLayout() {
       <Tabs.Screen name="investments" options={{ title: 'Investments' }} />
       <Tabs.Screen name="contribute"  options={{ title: 'Contribute' }} />
       <Tabs.Screen name="withdraw"    options={{ title: 'Withdraw' }} />
-      <Tabs.Screen name="goals"       options={{ title: 'Goals' }} />
+      <Tabs.Screen name="goals"        options={{ title: 'Goals' }} />
+      <Tabs.Screen name="rebalancing" options={{ title: 'Rebalance' }} />
       <Tabs.Screen name="settings"    options={{ title: 'Settings' }} />
     </Tabs>
   );
