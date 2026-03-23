@@ -61,6 +61,9 @@ alter table public.app_data enable row level security;
 
 create policy "Users can manage their own app data"
   on public.app_data for all using (auth.uid() = id);
+
+-- Enable Realtime so edits on one device appear instantly on other devices
+alter publication supabase_realtime add table public.app_data;
 ```
 
 4. Click **Run** — you should see "Success. No rows returned"
