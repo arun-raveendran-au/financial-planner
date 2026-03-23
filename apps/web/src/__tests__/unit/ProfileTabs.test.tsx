@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ProfileTabs } from '../../components/ui/ProfileTabs';
-import { usePlannerStore } from '../../store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 
 const resetStore = () =>
   usePlannerStore.setState({

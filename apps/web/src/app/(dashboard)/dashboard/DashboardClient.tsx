@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { usePlannerStore } from '@/store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 import { calculatePortfolioTimeline } from '@financial-planner/core';
 import { YearlyDataTable } from '@/components/ui/YearlyDataTable';
 import { DiversificationChart } from '@/components/charts/DiversificationChart';

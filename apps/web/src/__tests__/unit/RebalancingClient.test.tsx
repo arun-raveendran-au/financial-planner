@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { RebalancingClient } from '../../app/(dashboard)/rebalancing/RebalancingClient';
-import { usePlannerStore } from '../../store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 
 // ── Store helpers ──────────────────────────────────────────────────────────────
 

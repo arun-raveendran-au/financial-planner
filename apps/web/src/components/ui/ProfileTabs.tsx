@@ -1,6 +1,6 @@
 'use client';
 
-import { usePlannerStore } from '@/store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 import { User, Users, PlusCircle, Edit, Check, X } from 'lucide-react';
 import { useState } from 'react';
 

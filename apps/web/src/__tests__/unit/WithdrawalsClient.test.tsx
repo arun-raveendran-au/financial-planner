@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { WithdrawalsClient } from '../../app/(dashboard)/withdrawals/WithdrawalsClient';
-import { usePlannerStore } from '../../store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 import type { AnyTransaction, TxType } from '../../components/transactions/TransactionList';
 
 // ── TransactionList mock ───────────────────────────────────────────────────────

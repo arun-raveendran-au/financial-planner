@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SettingsClient } from '../../app/(dashboard)/settings/SettingsClient';
-import { usePlannerStore } from '../../store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 
 // ── Browser API mocks ──────────────────────────────────────────────────────────
 

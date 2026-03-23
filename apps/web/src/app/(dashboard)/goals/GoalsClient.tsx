@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { usePlannerStore, selectActiveProfile } from '@/store/plannerStore';
+import { usePlannerStore, selectActiveProfile } from '@financial-planner/store';
 import type { Goal } from '@financial-planner/types';
 import { PlusCircle, Edit, Trash2, X } from 'lucide-react';
 

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@financial-planner/core": "workspace:*",
+    "@financial-planner/store": "workspace:*",
     "@financial-planner/types": "workspace:*",
     "@supabase/supabase-js": "^2.49.4",
     "expo": "~53.0.0",

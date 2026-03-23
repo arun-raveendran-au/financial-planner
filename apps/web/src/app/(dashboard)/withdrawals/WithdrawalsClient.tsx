@@ -1,6 +1,6 @@
 'use client';
 
-import { usePlannerStore, selectActiveProfile } from '@/store/plannerStore';
+import { usePlannerStore, selectActiveProfile } from '@financial-planner/store';
 import { TransactionList } from '@/components/transactions/TransactionList';
 import type { SWP, OneTimeWithdrawal } from '@financial-planner/types';
 

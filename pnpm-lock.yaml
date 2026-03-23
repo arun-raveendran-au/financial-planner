@@ -23,6 +23,9 @@ importers:
       '@financial-planner/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@financial-planner/store':
+        specifier: workspace:*
+        version: link:../../packages/store
       '@financial-planner/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -66,6 +69,9 @@ importers:
       '@financial-planner/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@financial-planner/store':
+        specifier: workspace:*
+        version: link:../../packages/store
       '@financial-planner/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -155,6 +161,22 @@ importers:
       vitest:
         specifier: ^3.0.9
         version: 3.2.4(@types/node@22.19.15)(jiti@1.21.7)(jsdom@26.1.0)(lightningcss@1.27.0)(terser@5.46.1)
+
+  packages/store:
+    dependencies:
+      '@financial-planner/types':
+        specifier: workspace:*
+        version: link:../types
+      immer:
+        specifier: ^10.1.1
+        version: 10.2.0
+      zustand:
+        specifier: ^5.0.12
+        version: 5.0.12(@types/react@19.2.14)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
+    devDependencies:
+      typescript:
+        specifier: ^5.8.2
+        version: 5.9.3
 
   packages/types:
     devDependencies:
@@ -2737,6 +2759,9 @@ packages:
     resolution: {integrity: sha512-rH+46sQJ2dlwfjfhCyNx5thzrv+dtmBIhPHk0zgRUukHzZ/kRueTJXoYYsclBaKcSMBWuGbOFXtioLpzTb5euw==}
     engines: {node: '>=16.x'}
     hasBin: true
+
+  immer@10.2.0:
+    resolution: {integrity: sha512-d/+XTN3zfODyjr89gM3mPq1WNX2B8pYsu7eORitdwyA2sBubnTl3laYlBk4sXY5FUa5qTZGBDPJICVbvqzjlbw==}
 
   immer@11.1.4:
     resolution: {integrity: sha512-XREFCPo6ksxVzP4E0ekD5aMdf8WMwmdNaz6vuvxgI40UaEiu6q3p8X52aU6GdyvLY3XXX/8R7JOTXStz/nBbRw==}
@@ -7286,6 +7311,8 @@ snapshots:
     dependencies:
       queue: 6.0.2
 
+  immer@10.2.0: {}
+
   immer@11.1.4: {}
 
   import-fresh@2.0.0:
@@ -9053,6 +9080,13 @@ snapshots:
       yargs-parser: 21.1.1
 
   yocto-queue@0.1.0: {}
+
+  zustand@5.0.12(@types/react@19.2.14)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4)):
+    optionalDependencies:
+      '@types/react': 19.2.14
+      immer: 10.2.0
+      react: 19.2.4
+      use-sync-external-store: 1.6.0(react@19.2.4)
 
   zustand@5.0.12(@types/react@19.2.14)(immer@11.1.4)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4)):
     optionalDependencies:

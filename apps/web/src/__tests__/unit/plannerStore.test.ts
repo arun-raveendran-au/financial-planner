@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { usePlannerStore, selectActiveProfile, selectAllProfilesMerged } from '../../store/plannerStore';
+import { usePlannerStore, selectActiveProfile, selectAllProfilesMerged } from '@financial-planner/store';
 
 // Reset store before each test
 beforeEach(() => {

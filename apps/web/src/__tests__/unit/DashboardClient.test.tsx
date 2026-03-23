@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { DashboardClient } from '../../app/(dashboard)/dashboard/DashboardClient';
-import { usePlannerStore } from '../../store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 
 // Isolate DashboardClient from its children's external deps
 vi.mock('@/components/ui/ProfileTabs', () => ({

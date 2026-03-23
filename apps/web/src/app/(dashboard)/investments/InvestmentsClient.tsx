@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { usePlannerStore, selectActiveProfile } from '@/store/plannerStore';
+import { usePlannerStore, selectActiveProfile } from '@financial-planner/store';
 import { calculatePortfolioTimeline } from '@financial-planner/core';
 import type { Investment } from '@financial-planner/types';
 import { InvestmentCard } from '@/components/investments/InvestmentCard';

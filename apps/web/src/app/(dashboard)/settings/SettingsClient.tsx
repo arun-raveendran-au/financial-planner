@@ -1,6 +1,6 @@
 'use client';
 
-import { usePlannerStore } from '@/store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 import { Download, Upload, Trash2 } from 'lucide-react';
 import { useRef } from 'react';
 import type { GlobalSettings, Profile } from '@financial-planner/types';

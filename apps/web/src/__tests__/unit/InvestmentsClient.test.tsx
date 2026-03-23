@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { InvestmentsClient } from '../../app/(dashboard)/investments/InvestmentsClient';
-import { usePlannerStore } from '../../store/plannerStore';
+import { usePlannerStore } from '@financial-planner/store';
 import type { Investment } from '@financial-planner/types';
 
 // ── Child component mocks ──────────────────────────────────────────────────────
