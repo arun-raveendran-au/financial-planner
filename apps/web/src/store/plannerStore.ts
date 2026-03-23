@@ -72,6 +72,15 @@ export interface PlannerState {
   loadFromData: (profiles: Profile[], settings: GlobalSettings) => void;
 }
 
+// ─── ID generation ────────────────────────────────────────────────────────────
+// Using an atomic counter avoids duplicate IDs when multiple entities are
+// created within the same millisecond (common in tests and rapid UI actions).
+// Seeding from Date.now() ensures IDs are always larger than any previously
+// persisted value, so loaded data never conflicts with new entries.
+
+let _idCounter = Date.now();
+const nextId = () => ++_idCounter;
+
 // ─── Default values ───────────────────────────────────────────────────────────
 
 const DEFAULT_PROFILE: Omit<Profile, 'id' | 'name'> = {
@@ -101,7 +110,7 @@ export const usePlannerStore = create<PlannerState>()(
 
     addProfile: (name) =>
       set((state) => {
-        const id = Date.now();
+        const id = nextId();
         state.profiles.push({ id, name, ...DEFAULT_PROFILE });
         state.activeProfileId = id;
       }),
@@ -128,7 +137,7 @@ export const usePlannerStore = create<PlannerState>()(
     addInvestment: (profileId, investment) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.investments.push({ ...investment, id: Date.now() });
+        profile?.investments.push({ ...investment, id: nextId() });
       }),
 
     updateInvestment: (profileId, investment) =>
@@ -151,7 +160,7 @@ export const usePlannerStore = create<PlannerState>()(
     addSip: (profileId, sip) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.sips.push({ ...sip, id: Date.now() });
+        profile?.sips.push({ ...sip, id: nextId() });
       }),
 
     updateSip: (profileId, sip) =>
@@ -174,7 +183,7 @@ export const usePlannerStore = create<PlannerState>()(
     addLumpsum: (profileId, lumpsum) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.lumpsums.push({ ...lumpsum, id: Date.now() });
+        profile?.lumpsums.push({ ...lumpsum, id: nextId() });
       }),
 
     updateLumpsum: (profileId, lumpsum) =>
@@ -197,7 +206,7 @@ export const usePlannerStore = create<PlannerState>()(
     addSwp: (profileId, swp) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.swps.push({ ...swp, id: Date.now() });
+        profile?.swps.push({ ...swp, id: nextId() });
       }),
 
     updateSwp: (profileId, swp) =>
@@ -220,7 +229,7 @@ export const usePlannerStore = create<PlannerState>()(
     addOneTimeWithdrawal: (profileId, w) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.oneTimeWithdrawals.push({ ...w, id: Date.now() });
+        profile?.oneTimeWithdrawals.push({ ...w, id: nextId() });
       }),
 
     updateOneTimeWithdrawal: (profileId, w) =>
@@ -243,7 +252,7 @@ export const usePlannerStore = create<PlannerState>()(
     addGoal: (profileId, goal) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.goals.push({ ...goal, id: Date.now() });
+        profile?.goals.push({ ...goal, id: nextId() });
       }),
 
     updateGoal: (profileId, goal) =>
@@ -266,7 +275,7 @@ export const usePlannerStore = create<PlannerState>()(
     addRebalancingEvent: (profileId, event) =>
       set((state) => {
         const profile = state.profiles.find((p) => p.id === profileId);
-        profile?.rebalancingEvents.push({ ...event, id: Date.now() });
+        profile?.rebalancingEvents.push({ ...event, id: nextId() });
       }),
 
     updateRebalancingEvent: (profileId, event) =>
