@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Financial Planner",
+    "slug": "financial-planner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "financialplanner",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.financialplanner.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#4f46e5"
+      },
+      "package": "com.financialplanner.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
